@@ -18,8 +18,7 @@ bot = commands.Bot(
     auto_sync_commands=True,
 )
 
-bot.load_extensions("cogs.file_cog")
-bot.load_extensions("cogs.text_cog")
+bot.load_extensions("cogs.library")
 
 
 @bot.event
