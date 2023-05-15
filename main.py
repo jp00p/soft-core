@@ -19,6 +19,7 @@ bot = commands.Bot(
 )
 
 bot.load_extensions("cogs.library")
+bot.load_extensions("cogs.frog")
 
 
 @bot.event
