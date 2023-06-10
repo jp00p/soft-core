@@ -1,10 +1,12 @@
 import os
 import random
 import discord
+import datetime
 from discord.ext import tasks, commands
 
 SEND_TO = 340697363129565195
 FROGS_DIR = "D:\\bulk_image_downloader\\frogs"
+TIMES_TO_SEND = [datetime.time(hour=8), datetime.time(hour=16)]
 
 
 class FrogCog(commands.Cog):
@@ -23,7 +25,7 @@ class FrogCog(commands.Cog):
         file_path = os.path.join(FROGS_DIR, random_file)
         return file_path
 
-    @tasks.loop(hours=12)
+    @tasks.loop(time=TIMES_TO_SEND)
     async def send_frog(self):
         user = await self.bot.fetch_user(SEND_TO)
         random_file = self.pick_file()
